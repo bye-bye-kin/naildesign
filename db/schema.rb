@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_06_150154) do
+ActiveRecord::Schema.define(version: 2020_10_07_131431) do
 
-  create_table "recipes", force: :cascade do |t|
+  create_table "nails", force: :cascade do |t|
     t.integer "user_id"
     t.string "title"
     t.text "body"

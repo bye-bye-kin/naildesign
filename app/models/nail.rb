@@ -1,4 +1,4 @@
-class Recipe < ApplicationRecord
+class Nail < ApplicationRecord
   belongs_to :user
   attachment :image
 end

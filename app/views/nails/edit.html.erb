@@ -1,0 +1,16 @@
+
+
+<%= form_for @nail do |f| %>
+
+ <%= f.label :タイトル%>
+ <%= f.text_field :title%>
+
+ <%= f.label :テキスト%>
+ <%= f.text_area :body%>
+
+ <%= f.label :画像%>
+ <%= f.attachment_field :image%>
+
+  <%= f.submit "更新", class: "button is-danger is-light"%>
+
+<% end %>
