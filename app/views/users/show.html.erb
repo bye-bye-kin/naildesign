@@ -37,6 +37,14 @@
     </div>
   </div>
 </section>
-  
+
+
+<% @user.nails.each do |nail| %>
+  <%= attachment_image_tag nail, :image %>
+  <%= link_to "詳細", nail_path(nail) %>
+  <%= link_to "編集", edit_nail_path(nail)%>
+  <%= link_to "削除", nail_path(nail), method: :delete, data: {confirm: "削除しますか？"}%>
+<% end%>
+
   
 

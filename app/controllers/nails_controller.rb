@@ -24,6 +24,16 @@ class NailsController < ApplicationController
     @nail = Nail.find(params[:id])
   end
 
+  def update
+    
+  end
+
+  def destroy
+    nail = Nail.find(params[:id])
+    nail.destroy
+    redirect_to nails_path
+  end
+
   private
   def nail_params
     params.require(:nail).permit(:title, :body, :image)
