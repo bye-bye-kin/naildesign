@@ -38,13 +38,37 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.nails.each do |nail| %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="edit">
+              <%= link_to "編集", edit_nail_path(nail)%>
+            </div>
+            <div class="card-content">
+              <div class="card-image">
+              <figure class="image is-4by3">
+                <%= link_to nail_path(nail) do %>
+                  <%= attachment_image_tag nail, :image %>
+                <% end %>
+              </figure>
+            </div>
+              <div class="content">
+                <time><%= nail.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
+              </div>
+              <%# https://techacademy.jp/magazine/30077 %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
 
-<% @user.nails.each do |nail| %>
-  <%= attachment_image_tag nail, :image %>
-  <%= link_to "詳細", nail_path(nail) %>
-  <%= link_to "編集", edit_nail_path(nail)%>
-  <%= link_to "削除", nail_path(nail), method: :delete, data: {confirm: "削除しますか？"}%>
-<% end%>
 
-  
+
+      <%# <%= link_to "詳細", nail_path(nail) %> 
+      <%# <%= link_to "削除", nail_path(nail), method: :delete, data: {confirm: "削除しますか？"}%> 
 
