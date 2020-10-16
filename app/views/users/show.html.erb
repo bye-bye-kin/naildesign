@@ -20,8 +20,15 @@
                 </td>
                 <td>
                 <%=link_to "編集", edit_user_path(@user), class: "button is-primary"%>
-              </td>
-              <% end %>
+                </td>
+                <% end %>
+              </tr>
+            </table>
+            <table class="table is-fullwidth">
+              <tr>
+                <td>
+                  <p>投稿数：<%= @user.nails.count%></p>
+                </td>
               </tr>
             </table>
             <table class="table is-fullwidth">
@@ -44,9 +51,11 @@
       <% @user.nails.each do |nail| %>
         <div class="column is-4">
           <div class="card">
-            <div class="edit">
-              <%= link_to "編集", edit_nail_path(nail)%>
-            </div>
+            <%if @user.id == current_user.id%>
+              <div class="edit">
+                <%= link_to "編集", edit_nail_path(nail)%>
+              </div>
+            <% end %>
             <div class="card-content">
               <div class="card-image">
               <figure class="image is-4by3">

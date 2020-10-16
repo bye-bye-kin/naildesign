@@ -1,4 +1,5 @@
 class NailsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
     @nails = Nail.all.order(id: "DESC")
   end
@@ -14,18 +15,28 @@ class NailsController < ApplicationController
   def create
     @nail = Nail.new(nail_params)
     @nail.user_id = current_user.id
-    @nail.save
+    if @nail.save
     # redirect_to nail_path(@nail)
-    redirect_to user_path(@nail.user_id)
-    
+      redirect_to user_path(@nail.user_id)
+    else
+      render :new
+    end
   end
 
   def edit
     @nail = Nail.find(params[:id])
+    if @nail.user != current_user
+      redirect_to nails_path, alert: "不正なアクセスです"
+    end
   end
 
   def update
-    
+    @nail = Nail.find(params[:id])
+    if @nail.update(nail_params)
+      redirect_to nail_path(@nail)
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,4 +1,13 @@
-
+<% if @nail.errors.any?%>
+  <div class="notification is-danger">
+    <h2><%= pluralize(@nail.errors.count, "error")%> prohibited this object from being saved: not successfully</h2>
+    <ul>
+      <% @nail.errors.full_messages.each do |message|%>
+        <li><%= message%></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <%= form_for @nail do |f| %>
 
