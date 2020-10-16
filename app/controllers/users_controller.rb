@@ -6,8 +6,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @sort_nails = @user.nails.all.order(id: "DESC")
+    puts @sort_nails.inspect, '222222222222'
   end
-  
+
   def edit
     @user = User.find(params[:id])
     if @user != current_user

@@ -32,16 +32,16 @@ margin-bottom: 0px;
 	margin: 0 ;
 }
 
-.profile_image {
-	margin:50%;
-}
+.profile_image {margin:50%;}
 
-.media-content {
-	margin:5%;
-}
+.media-content {margin:5%;}
 
 .image img{
 	display: block;
     height: 100%;
     width: 100%;
+}
+
+.card-image img{
+	object-fit: contain;
 }
