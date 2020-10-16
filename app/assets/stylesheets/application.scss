@@ -22,6 +22,10 @@ margin-bottom: 0px;
 
 .profile_image{
 	border-radius: 50%;
+	object-fit:cover;
+	background-position:center;
+	height:30px;
+	width:30px;
 }
 
 .media:not(:last-child) {
@@ -34,4 +38,10 @@ margin-bottom: 0px;
 
 .media-content {
 	margin:5%;
+}
+
+.image img{
+	display: block;
+    height: 100%;
+    width: 100%;
 }
