@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "nails#index"
   resources :users
-  resources :nails
+  resources :nails do
+    resources :likes, only: %i(create destroy)
+  end
 end
