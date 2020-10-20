@@ -7,4 +7,5 @@ class Nail < ApplicationRecord
     validates :body
     validates :image
   end
+  has_many :likes, -> { order(created_at: :desc) }, dependent: :destroy
 end
