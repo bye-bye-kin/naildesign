@@ -6,4 +6,5 @@ class User < ApplicationRecord
   attachment :profile_image
   has_many :nails, dependent: :destroy
   validates :username, presence: true
+  has_many :likes
 end
