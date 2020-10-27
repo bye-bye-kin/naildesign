@@ -13,6 +13,16 @@
             <div class="media">
               <div class="media-content">
                 <p class="title is-4"><%= @nail.title %></p>
+                <div>
+                aaaaaaa
+                  <div id="like-icon-post-<%= @nail.id.to_s %>">
+                    <% if @nail.liked_by(current_user).present? %>
+                      <%= link_to "いいねを取り消す", nail_like_path(@nail.id, @nail.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                    <% else %>
+                      <%= link_to "いいね", nail_likes_path(@nail), method: :POST, remote: true, class: "love hide-text" %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="content">

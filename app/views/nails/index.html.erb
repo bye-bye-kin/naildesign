@@ -11,17 +11,32 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%=link_to nail.user.username, user_path(nail.user) %></div>
+                  <div class="title"><%=link_to nail.user.username, user_path(nail.user) %><%= nail.id %></div>
                 </div>
-              </div>
+            </div>
+
+            <div id="like-icon-post-<%= nail.id.to_s %>">
+              <% if nail.liked_by(current_user).present? %>
+                <%= link_to "いいねを取り消す", nail_like_path(nail.id, nail.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+              <% else %>
+                <%= link_to "いいね", nail_likes_path(nail), method: :POST, remote: true, class: "love hide-text" %>
+              <% end %>
+            </div>
+
+            <div id="like-text-post-<%= nail.id.to_s %>">
+            <%= render "like_text", { likes: nail.likes } %>
+          </div>
+
+
+
             <div class="card-content">
               <div class="card-image">
-              <figure class="image is-4by3 image_size">
-                <%= link_to nail_path(nail) do %>
-                  <%= attachment_image_tag nail, :image %>
-                <% end %>
-              </figure>
-            </div>
+                <figure class="image is-4by3 image_size">
+                  <%= link_to nail_path(nail) do %>
+                    <%= attachment_image_tag nail, :image %>
+                  <% end %>
+                </figure>
+              </div>
               <div class="content">
                 <time><%= nail.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新
               </div>

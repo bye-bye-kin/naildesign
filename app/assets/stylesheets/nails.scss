@@ -2,7 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.image_size{
-  height:288px;
-  width:384px;
+.image_size {
+  height: 288px;
+  width: 384px;
+}
+
+.loved {
+  background-image: image-url("parts7");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
 }

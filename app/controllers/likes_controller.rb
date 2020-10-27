@@ -2,16 +2,16 @@ class LikesController < ApplicationController
   before_action :authenticate_user!
   #サイン済のユーザーにのみアクセスを許可
   def create
-    @like = current_user.likes.buld(like_params)
-    @nail = @like.post
+    @like = current_user.likes.build(like_params)
+    @nail = @like.nail
     if @like.save
       respond_to :js
     end
   end
 
-  def detroy
-    @like =Like.find_by(id:params[:id])
-    @post = @like.post
+  def destroy
+    @like =Like.find_by(id: params[:id])
+    @nail= @like.nail
     if @like.destroy
       respond_to :js
     end

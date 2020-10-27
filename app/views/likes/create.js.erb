@@ -1,0 +1,4 @@
+$('#like-icon-nail-<%= @nail.id.to_s %>').
+  html('<%= link_to "いいね", nail_like_path(@nail.id, @like), method: :DELETE, remote: true, class: "loved hide-text" %>');
+$('#like-text-nail-<%= @nail.id.to_s %>').
+  html('<%= j render "nails/like_text", { likes: @nail.likes } %>');
